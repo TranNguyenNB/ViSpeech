@@ -34,3 +34,5 @@ The gender label will derived using `number // 3` (0: female, 1: male) while the
 
 #### Configuration and training
 Modify `config.yaml` and run `train.py`
+### Evaluating and Infering
+`config_infer.yaml` is used for both evaluation and inference
