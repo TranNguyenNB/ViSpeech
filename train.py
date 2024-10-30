@@ -163,7 +163,7 @@ def save_checkpoint(state, filename):
 
 def run_training():
     """Run the full training loop."""
-    # Create a timestamped folder for checkpoints
+    # Create a checkpoints folder
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     checkpoint_dir = f"checkpoints/{task}/{model_type}_{timestamp}"
     os.makedirs(checkpoint_dir, exist_ok=True)
