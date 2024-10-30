@@ -1,11 +1,13 @@
 import pandas as pd
+import numpy as np
+import glob
+import os
 import torch
 from augmentation.augment import AugmentAudio
-import numpy as np
 import random
 import librosa
 
-class VoiceDataset():
+class LoadDataAndLabel():
     def __init__(self, dataset, audio_length, sampling_rate, window_len, step_size, task_type, enable_augmentation=False, rir_path=None, noise_path=None):
         self.max_frames = audio_length * 100
         self.sampling_rate = sampling_rate
@@ -26,7 +28,7 @@ class VoiceDataset():
         label = self.get_label(self.label_list[idx])
 
         # Load the base audio
-        audio = self.load_audio(filename)
+        audio = self._load_audio(filename)
 
         # Apply augmentation if enabled
         if self.augment:
@@ -55,7 +57,7 @@ class VoiceDataset():
         elif self.task_type == "dialect":
             return int(original_label % 3)  
     
-    def load_audio(self, filename):
+    def _load_audio(self, filename):
         """Load and pad/truncate audio to fit the required length."""
         max_audio = self.max_frames * self.step_size + (self.window_len - self.step_size)
         audio, _ = librosa.load(filename, sr=self.sampling_rate)
@@ -67,3 +69,39 @@ class VoiceDataset():
             audio = np.pad(audio, (0, shortage), 'wrap')
 
         return audio[:max_audio]
+    
+
+class LoadData():
+    def __init__(self, dataset, audio_length, sampling_rate, window_len, step_size):
+        self.max_frames = audio_length * 100
+        self.sampling_rate = sampling_rate
+        self.window_len, self.step_size = window_len, step_size
+
+        if os.path.isdir(dataset):
+            self.file_list = glob.glob(f"{dataset}/*")
+
+        if os.path.isfile(dataset):
+            df = pd.read_csv(dataset, header=None)
+            self.file_list = df[0].tolist()
+
+    def __getitem__(self, idx):
+        filename = self.file_list[idx]
+        audio = self._load_audio(filename)
+        return torch.FloatTensor(audio), filename
+    
+    def __len__(self):
+        return len(self.file_list)
+
+    def _load_audio(self, filename):
+        """Load and pad/truncate audio to fit the required length."""
+        max_audio = self.max_frames * self.step_size + (self.window_len - self.step_size)
+        audio, _ = librosa.load(filename, sr=self.sampling_rate)
+
+        audiosize = audio.shape[0]
+
+        if audiosize <= max_audio:
+            shortage = max_audio - audiosize + 1
+            audio = np.pad(audio, (0, shortage), 'wrap')
+
+        return audio[:max_audio]
+    
