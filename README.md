@@ -9,7 +9,7 @@ The ViSpeech Dataset is a collection of unscripted audio recordings designed for
   - `noise_test`: Noisy test data for evaluation.
 
 - **Features**:
-  - `audio`: Audio data with a sampling rate of 16,000 Hz.
+  - `audio`: Audio data with a sampling rate of 44,100 Hz.
   - `audio_name`: The name of the audio file.
   - `dialect`: The dialect of the speaker.
   - `gender`: The gender of the speaker.
