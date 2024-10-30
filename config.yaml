@@ -1,0 +1,41 @@
+# Audio settings
+audio:
+  length: 5  # Length in seconds
+  sampling_rate: 22050
+  n_mels: 64
+
+  # FFT, window_len, step_size based on sampling rate
+  window_configs:
+    22050: [1024, 552, 220]
+    16000: [512, 400, 160]
+    8000: [512, 200, 80]
+
+# Model settings
+model:
+  type: "resnet34"  # Options: densenet121, resnet18, resnet34, mobilenet_v2, CNN
+  dropout: 0.3
+  versions:
+    densenet121: "v0.10.0"
+    resnet34: "v0.9.0"
+    resnet18: "v0.9.0"
+    mobilenet_v2: "v0.9.0"
+
+# Training settings
+training:
+  batch_size: 32
+  num_epochs: 300
+  enable_augmentation: true # Options: true, false
+
+# Task
+task:
+  type: "dialect" # Options: gender, dialect
+
+# Augmentation resources
+augmentation_resources:
+  rir_path: "augmentation/RIR"
+  noise_path: "augmentation/background_noise"
+
+# Dataset paths
+datasets:
+  trainset: "dataset/train.txt"
+  valset: "dataset/validation.txt"
