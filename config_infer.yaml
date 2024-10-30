@@ -1,0 +1,24 @@
+# Model settings
+model:
+  task: "dialect" # Options: gender, dialect
+  type: "resnet34"  # Options: densenet121, resnet18, resnet34, mobilenet_v2, CNN
+  versions:
+    densenet121: "v0.10.0"
+    resnet34: "v0.9.0"
+    resnet18: "v0.9.0"
+    mobilenet_v2: "v0.9.0"
+  length: 5  # Length in seconds
+  sampling_rate: 22050
+  n_mels: 64
+
+  # FFT, window_len, step_size based on sampling rate
+  window_configs:
+    22050: [1024, 552, 220]
+    16000: [512, 400, 160]
+    8000: [512, 200, 80]
+
+  checkpoint: "checkpoints/dialect/pretrained/resnet34_with_augment.pth"
+
+# Dataset paths
+datasets:
+  paths: ["dataset/noisy_testset.txt", "dataset/clean_testset.txt"]
