@@ -91,7 +91,8 @@ def infer(model, dataloader):
         'class': predicted_classes
     })
 
-    df[['proba_class_0', 'proba_class_1', 'proba_class_2']] = pd.DataFrame(df['probability'].tolist(), index=df.index)
+    cols = [f'proba_class_{i}' for i in range(len(probabilities[0]))]
+    df[cols] = pd.DataFrame(df['probability'].tolist(), index=df.index)
     df.drop(columns='probability', inplace=True)
     return df
 
@@ -112,6 +113,8 @@ for dataset in datasets:
     df = infer(model, dataloader)
 
     # Save the results
+    if not os.path.exists("inference_result"):
+        os.makedirs("inference_result")
     result_path = f"inference_result/{dataset.split("/")[-1].csv}"
     df.to_csv(result_path, index=False)
     print(f"Done. Saved to {result_path}\n")
