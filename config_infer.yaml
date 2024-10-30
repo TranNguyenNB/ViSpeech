@@ -21,4 +21,5 @@ model:
 
 # Dataset paths
 datasets:
-  paths: ["dataset/noisy_testset.txt", "dataset/clean_testset.txt"]
+  paths: ["dataset/noisy_testset.txt", "dataset/clean_testset.txt"] 
+  # For inference, paths can be either directories or txt files without header containing path to audio data in each line
