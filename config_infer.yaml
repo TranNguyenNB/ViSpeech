@@ -17,7 +17,7 @@ model:
     16000: [512, 400, 160]
     8000: [512, 200, 80]
 
-  checkpoint: "checkpoints/dialect/pretrained/resnet34_with_augment.pth"
+  checkpoint: "checkpoints/dialect/resnet34_with_augment.pth"
 
 # Dataset paths
 datasets:
