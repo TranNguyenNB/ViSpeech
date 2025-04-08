@@ -116,7 +116,7 @@ for dataset in datasets:
     # Save the results
     if not os.path.exists("inference_result"):
         os.makedirs("inference_result")
-    result_path = f"inference_result/{dataset.split("/")[-1].csv}"
+    result_path = f"inference_result/{dataset.split('/')[-1].csv}"
     df.to_csv(result_path, index=False)
     print(f"Done. Saved to {result_path}\n")
 
