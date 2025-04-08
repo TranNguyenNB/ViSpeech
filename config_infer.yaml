@@ -1,15 +1,15 @@
 # Model settings
 model:
-  task: "dialect" # Options: gender, dialect
-  type: "resnet34"  # Options: densenet121, resnet18, resnet34, mobilenet_v2, CNN
+  task: "gender" # Options: gender, dialect
+  type: "resnet18"  # Options: densenet121, resnet18, resnet34, mobilenet_v2, CNN
   versions:
     densenet121: "v0.10.0"
     resnet34: "v0.9.0"
     resnet18: "v0.9.0"
     mobilenet_v2: "v0.9.0"
-  length: 5  # Length in seconds (5 for dialect, 4 for gender)
-  sampling_rate: 22050 # (22050 for dialect, 16000 for gender)
-  n_mels: 64 # (64 for dialect, 40 for gender)
+  length: 4  # Length in seconds (5 for dialect, 4 for gender)
+  sampling_rate: 16000 # (22050 for dialect, 16000 for gender)
+  n_mels: 40 # (64 for dialect, 40 for gender)
 
   # FFT, window_len, step_size based on sampling rate
   window_configs:
@@ -17,7 +17,8 @@ model:
     16000: [512, 400, 160]
     8000: [512, 200, 80]
 
-  checkpoint: "/root/trannbt/speech_processing_examples/checkpoints/gender/resnet18_with_augment.pth"
+  # checkpoint: "checkpoints/dialect/resnet34_with_augment.pth"
+  checkpoint: "checkpoints/gender/resnet18_with_augment.pth"
 
 # Dataset paths
 datasets:
