@@ -8,6 +8,9 @@ It is divided into three subsets: a training set with clean recordings and two t
 The dataset is avaliable at:             
 https://drive.google.com/file/d/1-BbOHf42o6eBje2WqQiiRKMtNxmZiRf9/view?usp=sharing 
 
+Checkpoints:
+https://drive.google.com/drive/folders/1kUAjdlG7t_Pyh4ab1L3M4kH9qD88pI9h?usp=sharing
+
 **Details:**            
 The drive contains 3 folder: `trainset`, `clean_testset` and `noise_testset`. There is also a `metadata` folder including information related to the three sets. The information includes following fields:
   - `audio`: Audio data with a sampling rate of 44,100 Hz.
