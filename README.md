@@ -42,4 +42,25 @@ Modify `config.yaml` and run `train.py`
 
 ## Citation
 Please cite this paper if it helps your research:
-`Tran Nguyen, Uyen Nguyen, Thinh Pham, Truc Nguyen, and Binh T. Nguyen. 2024. Gender and Dialect Classification for the Vietnamese Language. In Proceedings of the 38th Pacific Asia Conference on Language, Information and Computation, pages 389–397, Tokyo, Japan. Tokyo University of Foreign Studies.`
+https://aclanthology.org/2024.paclic-1.39/
+```bibtex
+@inproceedings{nguyen-etal-2024-gender,
+    title = "Gender and Dialect Classification for the {V}ietnamese Language",
+    author = "Nguyen, Tran  and
+      Nguyen, Uyen  and
+      Pham, Thinh  and
+      Nguyen, Truc  and
+      Nguyen, Binh T.",
+    editor = "Oco, Nathaniel  and
+      Dita, Shirley N.  and
+      Borlongan, Ariane Macalinga  and
+      Kim, Jong-Bok",
+    booktitle = "Proceedings of the 38th Pacific Asia Conference on Language, Information and Computation",
+    month = dec,
+    year = "2024",
+    address = "Tokyo, Japan",
+    publisher = "Tokyo University of Foreign Studies",
+    url = "https://aclanthology.org/2024.paclic-1.39/",
+    pages = "389--397"
+}
+```
