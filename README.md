@@ -39,3 +39,7 @@ The gender label will derived using `number // 3` (0: female, 1: male) while the
 Modify `config.yaml` and run `train.py`
 ### Evaluating and Infering
 `config_infer.yaml` is used for both evaluation and inference
+
+## Citation
+Please cite this paper if it helps your research:
+`Tran Nguyen, Uyen Nguyen, Thinh Pham, Truc Nguyen, and Binh T. Nguyen. 2024. Gender and Dialect Classification for the Vietnamese Language. In Proceedings of the 38th Pacific Asia Conference on Language, Information and Computation, pages 389–397, Tokyo, Japan. Tokyo University of Foreign Studies.`
